@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gmail Notifier</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        width: 320px;
+        color: #fff;
+      }
+
+      header {
+        text-align: center;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      .input-group {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 8px; /* space between inputs */
+        margin-bottom: 10px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 8px 8px;
+        border: none;
+        border-radius: 6px;
+        outline: none;
+        font-size: 14px;
+      }
+
+      #addBtn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        background: linear-gradient(45deg, #ff6b6b, #f94d6a);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 0 10px rgba(255, 107, 107, 0.7);
+      }
+
+      #addBtn:hover {
+        background: linear-gradient(45deg, #ff4c4c, #e63e58);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(255, 76, 76, 0.9);
+      }
+
+      ul#emailList {
+        list-style: none;
+        margin: 15px 0 0;
+        padding: 0;
+        max-height: 220px;
+        overflow-y: auto;
+      }
+
+      ul#emailList li {
+        background: rgba(255, 255, 255, 0.1);
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease, background 0.2s ease;
+        flex-direction: column;
+      }
+
+      ul#emailList li:hover {
+        transform: translateX(3px);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .email-text {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        word-break: break-word;
+      }
+
+      .email-text .icon {
+        margin-right: 8px;
+        font-size: 16px;
+      }
+
+      .keywords {
+        font-size: 12px;
+        margin-top: 5px;
+        color: #dcdcdc;
+      }
+
+      .delete-btn {
+        background: transparent;
+        border: none;
+        color: #ff4c4c;
+        font-size: 18px;
+        cursor: pointer;
+        transition: transform 0.2s ease, color 0.2s ease;
+        align-self: flex-end;
+      }
+
+      .delete-btn:hover {
+        color: #ff1c1c;
+        transform: scale(1.3);
+      }
+
+      ul#emailList::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      ul#emailList::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+      }
+
+      ul#emailList::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        transition: background 0.3s ease;
+      }
+
+      ul#emailList::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <header>📧 Gmail Notifier</header>
+    <div class="container">
+      <div class="input-group">
+        <input type="text" id="emailInput" placeholder="Enter email..." />
+        <input type="text" id="keywordInput" placeholder="Enter keywords (optional, comma-separated)..." />
+      </div>
+      <button id="addBtn">+ Add</button>
+      <ul id="emailList"></ul>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

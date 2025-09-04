@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Simple Gmail Notifier",
+  "version": "1.1",
+
+  "permissions": ["alarms", "storage", "notifications", "tabs", "scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["sound.mp3"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "icons": {
+    "128": "icon128.png"
+  }
+}
