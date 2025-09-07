@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const emailInput = document.getElementById("emailInput");
   const keywordInput = document.getElementById("keywordInput");
@@ -57,8 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const keywords = keywordInput.value
       .split(",")
-      .map(k => k.trim())
-      .filter(k => k !== ""); // remove empty strings
+      .map((k) => k.trim())
+      .filter((k) => k !== ""); // remove empty strings
 
     chrome.storage.local.get({ trackedEmails: [] }, (data) => {
       const updated = [...data.trackedEmails, { email, keywords }];
